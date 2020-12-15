@@ -1,0 +1,19 @@
+<html>
+    <body>
+        <input type="file" id="in" />
+        <button id="read">Read File</button>
+        <pre id="con"></pre>
+
+        <script>
+            document.getElementById("read").addEventListener('click', function() {
+                let file = document.getElementById("in").files[0];
+                let reader = new FileReader();
+                reader.addEventListener('load', function(e) {
+                        let text = e.target.result;
+                        document.getElementById("con").textContent = text;
+                });
+                reader.readAsText(file);
+            });
+        </script>
+    </body>
+</html>
